@@ -1,0 +1,27 @@
+<div class="modal fade" id="modalContato-<%= contato._id %>" tabindex="-1" aria-labelledby="modalContatoLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalContatoLabel">Editar Contato</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form-editar" action="/contato/edit/<%= contato._id %>" method="post">
+          <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+          <label class="form-label">Nome</label>
+          <input value="<%= contato.nome %>" type="text" class="form-control" name="nome">
+          <label class="form-label">Sobrenome</label>
+          <input value="<%= contato.sobrenome %>" type="text" class="form-control" name="sobrenome">
+          <label class="form-label">Telefone</label>
+          <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone">
+          <label class="form-label">E-mail</label>
+          <input value="<%= contato.email %>" type="email" class="form-control" name="email">
+          <div class="modal-footer">
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Salvar Alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

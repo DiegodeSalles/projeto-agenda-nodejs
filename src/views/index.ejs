@@ -1,0 +1,42 @@
+<%- include('./includes/header') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <% if(!user) { %>
+      <%- include('./login') %>
+      <% } else { %>
+      <h1 class="text-center">Olá <%= user.email %></h1>
+
+      <%- include('./includes/messages') %>
+
+      <% if(contatos.length > 0) { %>
+      <div class="table-responsive-md">
+        <table class="table my-3">
+          <% contatos.forEach((contato) => { %>
+          <tr class="contatoAgenda">
+            <td hidden class="contatoId"><%= contato._id %></td>
+            <td class="contatoNome"><%= contato.nome %></td>
+            <td class="contatoSobrenome"><%= contato.sobrenome %></td>
+            <td class="contatoTelefone"><%= contato.telefone %></td>
+            <td class="contatoEmail"><%= contato.email %></td>
+            <td class="contatoEditar"><button class="editar btn btn-outline-warning">Editar</button></td>
+            <td><a class="btn btn-outline-danger" href="contato/delete/<%= contato._id %>">Deletar</a></td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+      <% } else { %>
+      <p class="text-center lead">Não existem contatos na sua agenda.</p>
+      <% } %>
+      <%- include('./includes/modalEdit') %>
+      <% } %>
+      <div class="col-lg-2"></div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('./includes/footer') %>

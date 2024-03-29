@@ -1,0 +1,26 @@
+<div class="modal fade" id="modalRegister" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalRegisterLabel">Criar Contato</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form-register" action="/contato/register/" method="post">
+          <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+          <label class="form-label">Nome</label>
+          <input value="" type="text" class="form-control" id="register_nome" name="nome">
+          <label class="form-label">Sobrenome</label>
+          <input value="" type="text" class="form-control" id="register_sobrenome" name="sobrenome">
+          <label class="form-label">Telefone</label>
+          <input value="" type="tel" class="form-control" id="register_telefone" name="telefone">
+          <label class="form-label">E-mail</label>
+          <input value="" type="email" class="form-control" id="register_email" name="email">
+          <div class="modal-footer">
+            <button type="submit" id="register_salvar" class="btn btn-primary">Salvar Contato</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
